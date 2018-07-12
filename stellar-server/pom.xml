@@ -13,11 +13,7 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>net.atos.spring</groupId>
-            <artifactId>stellar-dao</artifactId>
-            <version>1.0</version>
-        </dependency>
+
     </dependencies>
 
     <build>
