@@ -18,6 +18,7 @@
     <modules>
         <module>stellar-server</module>
         <module>stellar-dao</module>
+        <module>stellar-model</module>
     </modules>
 
 
