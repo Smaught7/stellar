@@ -12,6 +12,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jboss.dir>c:\wildfly</jboss.dir>
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     </properties>
 
 
@@ -19,6 +22,7 @@
         <module>stellar-server</module>
         <module>stellar-dao</module>
         <module>stellar-model</module>
+        <module>stellar-service</module>
     </modules>
 
 
@@ -35,14 +39,29 @@
         </pluginManagement>
         <plugins>
             <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
 
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
-
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <excludes>file:**/*.js</excludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

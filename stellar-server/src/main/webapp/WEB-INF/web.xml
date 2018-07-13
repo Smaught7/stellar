@@ -6,6 +6,26 @@
 
     <display-name>Stellar</display-name>
 
+    <servlet>
+        <servlet-name>stellar</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>stellar</servlet-name>
+        <url-pattern>/spring/webapi/*</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/stellar-servlet.xml</param-value>
+    </context-param>
+
+
     <!-- serve css and js files statically -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
